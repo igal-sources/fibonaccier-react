@@ -1,16 +1,19 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import Routes from "./components/appRoutes";
+import { StoreProvider } from "./services/StoreContext";
 import "./App.css";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="App">
-        <div className="App-content">
-          <Routes />
+      <StoreProvider>
+        <div className="App">
+          <div className="App-content">
+            <Routes />
+          </div>
         </div>
-      </div>
+      </StoreProvider>
     </BrowserRouter>
   );
 };

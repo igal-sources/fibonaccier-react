@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 
-export const StoreContext = React.createContext(null);
+const StoreContext = React.createContext([{}, () => {}]);
 
-const StoreProvider = ({ children }) => {
-  const [currentNumber, setCurrentNumber] = useState(11);
+const StoreProvider = (props) => {
+  const [state, setState] = useState({
+    currentIndex: localStorage.getItem("lastIndex"),
+  });
 
-  const store = {
-    currentNumber,
-    setCurrentNumber,
-  };
-
-  return <StoreContext.Provider value={store}>{children}</StoreContext.Provider>;
+  return <StoreContext.Provider value={[state, setState]}>{props.children}</StoreContext.Provider>;
 };
 
-export default StoreProvider;
+export { StoreContext, StoreProvider };
