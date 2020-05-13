@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { StoreContext } from "../services/StoreContext";
 
-const Main = (number) => {
+const Main = () => {
+  const currentNumber = useContext(StoreContext);
+  console.log("store: ", currentNumber);
   return <div>Fibonaccier</div>;
 };
 

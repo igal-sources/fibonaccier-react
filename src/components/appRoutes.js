@@ -5,7 +5,7 @@ import NotFoundPage from "./not-found-page/NotFoundPage";
 
 export default (fibNumber) => (
   <Switch>
-    <Route exact path="/" component={() => <Main fibNumber={fibNumber} />} />
+    <Route exact path="/" component={() => <Main />} />
     <Route component={NotFoundPage} />
   </Switch>
 );
