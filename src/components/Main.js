@@ -31,12 +31,7 @@ const Main = () => {
       <div className="Main-header">The Fibonaccier</div>
       <div className="square">{fibonacciNumber}</div>
       <div className="Main-nav-buttons">
-        <Link
-          to="/"
-          className={previousClassName}
-          disabled={fibonacciNumber === 1}
-          onClick={togglePrevious}
-        >
+        <Link to="/" className={previousClassName} onClick={togglePrevious}>
           {"<< Previous"}
         </Link>
         <Link to="/" className={nextClassName} onClick={toggleNext}>
