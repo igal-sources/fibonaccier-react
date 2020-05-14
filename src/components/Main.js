@@ -5,35 +5,36 @@ import classNames from "classnames";
 import "./main.css";
 
 const Main = () => {
-  const { toggleNext, togglePrevious, lastIndex } = useCurrent();
-  console.log("Main: lastIndex: ", lastIndex);
+  const { toggleNext, togglePrevious, fibonacciNumber } = useCurrent();
+  console.log("fibonacciNumber: ", fibonacciNumber);
 
   const setNewIndex = () => {};
+
   const previousClassName = classNames({
     "nav-link": true,
-    active: lastIndex > 0,
-    "disabled-link": lastIndex === 1,
+    active: fibonacciNumber > 0,
+    "disabled-link": fibonacciNumber === 1,
   });
 
   const nextClassName = classNames({
     "nav-link": true,
-    active: lastIndex > 0,
+    active: fibonacciNumber > 0,
   });
 
   const jumpClassName = classNames({
     "nav-link": true,
-    active: lastIndex > 0,
+    active: fibonacciNumber > 0,
   });
 
   return (
     <div className="Main-container">
       <div className="Main-header">The Fibonaccier</div>
-      <div className="square">{lastIndex}</div>
+      <div className="square">{fibonacciNumber}</div>
       <div className="Main-nav-buttons">
         <Link
           to="/"
           className={previousClassName}
-          disabled={lastIndex === 1}
+          disabled={fibonacciNumber === 1}
           onClick={togglePrevious}
         >
           {"<< Previous"}
