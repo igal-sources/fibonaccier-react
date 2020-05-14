@@ -5,10 +5,14 @@ import classNames from "classnames";
 import "./main.css";
 
 const Main = () => {
-  const { toggleNext, togglePrevious, fibonacciNumber } = useCurrent();
+  const { toggleNext, togglePrevious, fibonacciNumber, fibonacciByPage } = useCurrent();
   console.log("fibonacciNumber: ", fibonacciNumber);
 
-  const setNewIndex = () => {};
+  const setNewPage = () => {
+    const pageNumber = prompt("Please enter page number");
+    const fibNewNumber = fibonacciByPage(pageNumber);
+    console.log("fibNewNumber: ", fibNewNumber);
+  };
 
   const previousClassName = classNames({
     "nav-link": true,
@@ -37,7 +41,7 @@ const Main = () => {
         <Link to="/" className={nextClassName} onClick={toggleNext}>
           {"Next >>"}
         </Link>
-        <Link to="/" className={jumpClassName} onClick={setNewIndex}>
+        <Link to="/" className={jumpClassName} onClick={setNewPage}>
           {"Jump to..."}
         </Link>
       </div>

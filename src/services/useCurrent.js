@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { StoreContext } from "./StoreContext";
+import { findFibNumberByLocation } from "../services/utils";
 
 const useCurrent = () => {
   const [state, setState] = useContext(StoreContext);
@@ -14,6 +15,10 @@ const useCurrent = () => {
 
     localStorage.setItem("lastNumber", nextNumber);
     console.log("toggleNext: ", nextNumber);
+  };
+
+  const fibonacciByPage = (num) => {
+    setState(findFibNumberByLocation(num));
   };
 
   const togglePrevious = () => {
@@ -31,6 +36,7 @@ const useCurrent = () => {
     fibonacciNumber: state.fibonacciNumber,
     toggleNext,
     togglePrevious,
+    fibonacciByPage,
   };
 };
 
