@@ -6,13 +6,19 @@ import "./main.scss";
 
 const Main = () => {
   const { pathname } = useLocation();
-  const path = pathname.split("/").pop();
-  console.log("path: ", path);
-  const { toggleNext, togglePrevious, fibonacciNumber, fibonacciByPage } = useCurrent();
+  const location = pathname.split("/").pop();
+
+  const {
+    toggleNext,
+    togglePrevious,
+    fibonacciNumber,
+    fibonacciByPage,
+    toggleReset,
+  } = useCurrent();
 
   const setNewPage = () => {
     const pageNumber = prompt("Please enter page number");
-    fibonacciByPage(pageNumber);
+    pageNumber && fibonacciByPage(pageNumber);
   };
 
   const previousClassName = classNames({
@@ -51,6 +57,11 @@ const Main = () => {
         <div className="Main-nav-jump">
           <Link to="/" className={jumpClassName} onClick={setNewPage}>
             {"Jump to..."}
+          </Link>
+        </div>
+        <div className="Main-nav-reset">
+          <Link to="/" onClick={toggleReset}>
+            {"Reset"}
           </Link>
         </div>
       </div>
