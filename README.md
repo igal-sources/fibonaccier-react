@@ -1,12 +1,12 @@
-Fibonaccier React Hooks sample project.
+**Fibonaccier** React Hooks sample project.
 
 This is example to demonstrate fibonacci numbers.
 
-Libraries use:<br />
-react-router-dom - is a predictable state container for JavaScript apps.<br />
-classnames - A simple JavaScript utility for conditionally joining classNames together.<br />
+**Libraries use**:<br />
+**react-router-dom** - is a predictable state container for JavaScript apps.<br />
+**classnames** - A simple JavaScript utility for conditionally joining classNames together.<br />
 <br />
-Features:<br />
+**Features**:<br />
 Main Screen:<br />
 
 - A box that shows the current fibonacci number
@@ -21,7 +21,7 @@ The application is responsive.
 All component written as functional components.
 React Hooks to manage the component lifecycle.
 
-Installation:<br />
+**Installation**:<br />
 Github link - https://github.com/igal-sources/fibonaccier-react<br />
 
 git clone https://github.com/igal-sources/fibonaccier-react.git<br />
