@@ -25,11 +25,13 @@ const useCurrent = () => {
     setState((state) => ({
       previous1: state.previous2,
       previous2: state.previous1 - state.previous2,
-      fibonacciNumber: state.previous2,
+      fibonacciNumber: state.previous1 - state.previous2,
     }));
 
     localStorage.setItem("lastNumber", state.fibonacciNumber);
     console.log("togglePrevious: ", state.fibonacciNumber);
+    console.log("previous1: ", state.previous1);
+    console.log("previous2: ", state.previous2);
   };
 
   return {

@@ -2,16 +2,17 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import useCurrent from "../services/useCurrent";
 import classNames from "classnames";
-import "./main.css";
+import "./main.scss";
 
 const Main = () => {
+  const { pathname } = useLocation();
+  const path = pathname.split("/").pop();
+  console.log("path: ", path);
   const { toggleNext, togglePrevious, fibonacciNumber, fibonacciByPage } = useCurrent();
-  console.log("fibonacciNumber: ", fibonacciNumber);
 
   const setNewPage = () => {
     const pageNumber = prompt("Please enter page number");
-    const fibNewNumber = fibonacciByPage(pageNumber);
-    console.log("fibNewNumber: ", fibNewNumber);
+    fibonacciByPage(pageNumber);
   };
 
   const previousClassName = classNames({
@@ -33,17 +34,25 @@ const Main = () => {
   return (
     <div className="Main-container">
       <div className="Main-header">The Fibonaccier</div>
-      <div className="square">{fibonacciNumber}</div>
-      <div className="Main-nav-buttons">
-        <Link to="/" className={previousClassName} onClick={togglePrevious}>
-          {"<< Previous"}
-        </Link>
-        <Link to="/" className={nextClassName} onClick={toggleNext}>
-          {"Next >>"}
-        </Link>
-        <Link to="/" className={jumpClassName} onClick={setNewPage}>
-          {"Jump to..."}
-        </Link>
+      <div>
+        <div className="Main-content">
+          <div className="Main-nav-prev">
+            <Link to="/" className={previousClassName} onClick={togglePrevious}>
+              {"<< Previous"}
+            </Link>
+          </div>
+          <div className="square">{fibonacciNumber}</div>
+          <div className="Main-nav-next">
+            <Link to="/" className={nextClassName} onClick={toggleNext}>
+              {"Next >>"}
+            </Link>
+          </div>
+        </div>
+        <div className="Main-nav-jump">
+          <Link to="/" className={jumpClassName} onClick={setNewPage}>
+            {"Jump to..."}
+          </Link>
+        </div>
       </div>
     </div>
   );
