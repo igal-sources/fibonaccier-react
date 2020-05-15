@@ -6,6 +6,11 @@ This is example to demonstrate fibonacci numbers.
 **react-router-dom** - is a predictable state container for JavaScript apps.<br />
 **classnames** - A simple JavaScript utility for conditionally joining classNames together.<br />
 <br />
+
+![alt text](https://github.com/igal-sources/fibonaccier-react/blob/master/public/images/DesktopView.png)
+
+![alt text](https://github.com/igal-sources/fibonaccier-react/blob/master/public/images/mobileView.png)
+
 **Features**:<br />
 Main Screen:<br />
 
@@ -13,12 +18,14 @@ Main Screen:<br />
 - Next/Previous links - Changes the current fibonacci to the previous/next.
   he "<< Previous" link will be disabled if we're showing the first number in the sequence.
 - Jump to link - Prompt the user to enter the page number to jump to.
-  for example: page 6 will show the 6th number in the fibonacci sequence (8).
+  for example: page 6 will show the 6th number in the fibonacci sequence (8).<br />
+  The last number the user visits is saved.<br />
+  Once the user re-enters the site, his/her last visited number should be displayed.<br />
 
 AppRoutes - contains routes to main screen.
 The application is responsive.
 
-All component written as functional components.<br />
+All component written as functional components.
 React Hooks to manage the component lifecycle.
 
 **Installation**:<br />
