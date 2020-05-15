@@ -18,7 +18,7 @@ Main Screen:<br />
 AppRoutes - contains routes to main screen.
 The application is responsive.
 
-All component written as functional components.
+All component written as functional components.<br />
 React Hooks to manage the component lifecycle.
 
 **Installation**:<br />
