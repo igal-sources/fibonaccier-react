@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import useCurrent from "../services/useCurrent";
+import useCurrent from "../../services/useCurrent";
 import classNames from "classnames";
 import "./main.scss";
 
 const Main = () => {
-  const { pathname } = useLocation();
-  const location = pathname.split("/").pop();
+  //const { pathname } = useLocation();
+  //const location = pathname.split("/").pop();
 
   const {
     toggleNext,

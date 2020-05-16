@@ -14,19 +14,19 @@ This is example to demonstrate fibonacci numbers.
 **Features**:<br />
 Main Screen:<br />
 
-- A box that shows the current fibonacci number
-- Next/Previous links - Changes the current fibonacci to the previous/next.
-  he "<< Previous" link will be disabled if we're showing the first number in the sequence.
-- Jump to link - Prompt the user to enter the page number to jump to.
+- A box that shows the current fibonacci number<br />
+- Next/Previous links - Changes the current fibonacci to the previous/next.<br />
+  the "<< Previous" link will be disabled if we're showing the first number in the sequence.<br />
+- Jump to link - Prompt the user to enter the page number to jump to.<br />
   for example: page 6 will show the 6th number in the fibonacci sequence (8).<br />
   The last number the user visits is saved.<br />
   Once the user re-enters the site, his/her last visited number should be displayed.<br />
 
-AppRoutes - contains routes to main screen.
+AppRoutes - contains routes to main screen.<br />
 The application is responsive.
 
-All component written as functional components.
-React Hooks to manage the component lifecycle.
+All component written as functional components.<br />
+React Hooks to manage the component lifecycle.<br />
 
 **Installation**:<br />
 Github link - https://github.com/igal-sources/fibonaccier-react<br />
