@@ -1,49 +1,35 @@
-import React, { useContext } from "react";
+import React from "react";
 import { shallow } from "enzyme";
-import MyContext, { useMyContext } from "./MyContext";
-import * as MyContextModule from "./MyContext";
 import Main from "./Main";
 
-export const MyComponent = () => {
-  const { myVal } = useContext(MyContext);
-  return <div data-test="my-component">{myVal}</div>;
-};
-
 describe("Main - fibonacci numbers testing", () => {
-  it("renders the correct text", () => {
-    jest.spyOn(MyContextModule, "useMyContext").mockImplementation(() => ({
-      myVal: "foobar",
-    }));
+  const wrapper = shallow(<Main />);
 
-    const wrapper = shallow(
-      <MyContext.Provider>
-        <Main />
-      </MyContext.Provider>
-    ).dive();
+  it(`Should check that header is rendering`, () => {
     expect(wrapper.find(".Main-header")).toHaveLength(1);
   });
-  //const wrapper = shallow(<Main />);
 
-  //Check existing 4 operation links.
-  //Next/Previous links - Changes the current fibonacci to the previous/next
-  //Previous" link will be disabled if we're showing the first number in the sequence
-  //Jump to link - Prompt the user to enter the page number to jump to.
-  //The last number the user visits is saved
-  // it("renders the correct text", () => {
-  //   const wrapper = shallow(<MyComponent />, {
-  //     wrappingComponent: MyContext.Provider,
-  //     wrappingComponentProps: { value: { myVal: "foobar" } },
-  //   });
-  //   expect(wrapper.text()).toEqual("foobar"); // expected "foobar" received ""
-  // });
+  it(`Should check existing 4 operation links`, () => {
+    const link = wrapper.find("Link");
+    expect(link.at(0).text()).toEqual("<< Previous");
+    expect(link.at(1).text()).toEqual("Next >>");
+    expect(link.at(2).text()).toEqual("Jump to...");
+    expect(link.at(3).text()).toEqual("Reset");
+  });
 
-  // it(`Should check that header is rendering`, () => {
-  //   const wrapper = shallow(
-  //     <MyContext.Provider value={{ myVal: "foobar" }}>
-  //       <MyComponent />
-  //     </MyContext.Provider>
-  //   ).dive();
-  //   expect(wrapper.text()).toEqual("foobar"); // expected "foobar" received ""
-  //   expect(wrapper.find(".Main-header")).toHaveLength(1);
-  // });
+  it(`Should check "Jump to..." to call prompt window`, () => {
+    window.prompt = jest.fn(() => true);
+
+    const nextLink = wrapper.find("Link").at(2);
+    nextLink.simulate("click", { button: 1 });
+    expect(window.prompt).toBeCalled();
+  });
+
+  it(`Should check onClick on Next link`, () => {
+    const nextLink = wrapper.find("Link").at(0);
+    nextLink.simulate("click");
+
+    wrapper.update();
+    expect(wrapper.find("#Main-fibonacci-number").text()).toEqual("1");
+  });
 });

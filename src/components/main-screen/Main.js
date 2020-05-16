@@ -1,13 +1,10 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useCurrent from "../../services/useCurrent";
 import classNames from "classnames";
 import "./main.scss";
 
 const Main = () => {
-  //const { pathname } = useLocation();
-  //const location = pathname.split("/").pop();
-
   const {
     toggleNext,
     togglePrevious,
@@ -47,7 +44,9 @@ const Main = () => {
               {"<< Previous"}
             </Link>
           </div>
-          <div className="square">{fibonacciNumber}</div>
+          <div id="Main-fibonacci-number" className="square">
+            {fibonacciNumber}
+          </div>
           <div className="Main-nav-next">
             <Link to="/" className={nextClassName} onClick={toggleNext}>
               {"Next >>"}

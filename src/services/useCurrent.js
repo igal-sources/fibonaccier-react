@@ -1,9 +1,14 @@
-import { useContext } from "react";
-import { StoreContext } from "./StoreContext";
+import { useState } from "react";
 import { findFibNumberByLocation } from "../services/utils";
 
 const useCurrent = () => {
-  const [state, setState] = useContext(StoreContext);
+  const lastNumber = localStorage.getItem("lastNumber");
+
+  const [state, setState] = useState({
+    fibonacciNumber: lastNumber ? lastNumber : 1,
+    previous1: lastNumber ? lastNumber - 1 : 1,
+    previous2: lastNumber ? lastNumber - 2 : 0,
+  });
 
   const toggleReset = () => {
     setState((state) => ({
